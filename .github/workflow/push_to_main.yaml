@@ -39,8 +39,8 @@ jobs:
       - name: Build and publish updated image
         run: |
           mvn package
-          docker build . --tag ghcr.io/suhanipandey/devops_repo:latest
-          docker push ghcr.io/suhanipandey/devops_repo:latest
+          docker build . --tag ghcr.io/suhani-pandey/devops_repo:latest
+          docker push ghcr.io/suhani-pandey/devops_repo:latest
 
   update_coverage_report:
     needs: run_tests
