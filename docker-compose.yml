@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  k8s-doc-example-container:
+    image: k8s-doc-example-app:3
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /data/k8s-doc-example-app
+    ports:
+      - "8088:8088"
+
+
+
+
+#  db:
+#    image: "postgres"
+#    restart: always
+#    container_name: "doc-pgsql-container"
+#    ports:
+#      - "5452:5432"  # Fix port mapping
+#    volumes:
+#      - db:/var/lib/postgresql/data
+#    environment:
+#      - POSTGRES_DB=doc-db
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=Suhanipandey
+#
+#  backend:
+#    image: 'devops-demo:latest'
+#    build:
+#      context: ./
+#    container_name: 'devops-demo-container'
+#    ports:
+#      - "8080:8080"  # Fix port mapping
+#    depends_on:
+#      - db
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/doc-db
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+#volumes:
+#  db:
+#    driver: local
