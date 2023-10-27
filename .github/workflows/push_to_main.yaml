@@ -42,6 +42,7 @@ jobs:
           docker build . --tag ghcr.io/suhani-pandey/devops_repo:latest
           docker push ghcr.io/suhani-pandey/devops_repo:latest
 
+
   update_coverage_report:
     needs: run_tests
     permissions:
