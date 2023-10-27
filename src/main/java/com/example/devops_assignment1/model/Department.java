@@ -1,5 +1,8 @@
 package com.example.devops_assignment1.model;
 
+
+
+
 public class Department {
 
     private Long id;

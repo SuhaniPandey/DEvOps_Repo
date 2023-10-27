@@ -42,7 +42,7 @@ public class StoryTest {
 
     @Test
     public void setNewStoryContent_success_Scenario(){
-        testStory.setTitle("everything");
+        testStory.setContent("everything");
         assertEquals("everything",testStory.getContent());
     }
 }

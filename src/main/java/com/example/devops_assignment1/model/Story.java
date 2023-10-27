@@ -1,6 +1,10 @@
 package com.example.devops_assignment1.model;
 
+
+
+
 public class Story {
+
     private Long id;
     private String title;
     private String content;
@@ -13,6 +17,8 @@ public class Story {
         this.content = content;
         this.user = user;
     }
+
+
 
     public Department getUser() {
         return user;
@@ -45,4 +51,6 @@ public class Story {
     public void setContent(String content) {
         this.content = content;
     }
+
+
 }
