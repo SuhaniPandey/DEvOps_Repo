@@ -4,6 +4,7 @@ import com.example.devops_assignment1.model.Department;
 import com.example.devops_assignment1.model.Story;
 import com.example.devops_assignment1.repository.IDepartmentRepository;
 import com.example.devops_assignment1.repository.IStoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,6 +14,7 @@ public class StoryService {
 
     IStoryRepository storyRepository;
 
+    @Autowired
     public StoryService(IStoryRepository storyRepository) {
         this.storyRepository = storyRepository;
     }

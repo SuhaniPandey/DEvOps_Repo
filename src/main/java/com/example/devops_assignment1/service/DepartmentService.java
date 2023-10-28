@@ -2,6 +2,7 @@ package com.example.devops_assignment1.service;
 
 import com.example.devops_assignment1.model.Department;
 import com.example.devops_assignment1.repository.IDepartmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,6 +13,7 @@ public class DepartmentService {
 
     IDepartmentRepository departmentRepository;
 
+    @Autowired
     public DepartmentService(IDepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
