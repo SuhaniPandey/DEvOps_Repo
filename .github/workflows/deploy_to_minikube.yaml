@@ -34,7 +34,7 @@ jobs:
 
     - name: Deploy to Minikube
       run: |
-        kubectl apply -f deploy-cicd-demo.yaml
+        kubectl apply -f CI_CD_deployment.yaml
         kubectl wait --for=condition=Ready pod -l app=cicd-demo
         kubectl get all
 
