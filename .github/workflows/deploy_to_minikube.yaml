@@ -1,0 +1,51 @@
+name: CD-Deploy to Minikube using GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+   job1:
+    name: Build and Deploy to Minikube
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Start Minikube
+      id: minikube
+      uses: medyagh/setup-minikube@latest
+
+    - name: Try the cluster
+      run: kubectl get pods -A
+
+    - name: Build Image
+      run: |
+        export SHELL=/bin/bash
+        eval $(minikube -p minikube docker-env)
+        docker build -f ./Dockerfile -t local/cicd-demo .
+        echo -n "Verifying images: "
+        docker images
+
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f deploy-cicd-demo.yaml
+        kubectl wait --for=condition=Ready pod -l app=cicd-demo
+        kubectl get all
+
+    - name: Test service URLs
+      run: |
+        echo "SERVICE_URL=$(minikube service cicd-demo --url)"
+        kubectl port-forward service/cicd-demo 8383:8383 &> /dev/null &
+        sleep 5
+        kubectl port-forward service/cicd-demo 8383:8383 &> /dev/null &
+
+    - name: Cleanup
+      run: |
+        eval $(minikube docker-env -u)
+        minikube delete
