@@ -35,7 +35,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.DevOps_test }}
+          password: ${{ secrets.DevOps_assignment }}
       - name: Build and publish updated image
         run: |
           mvn package
