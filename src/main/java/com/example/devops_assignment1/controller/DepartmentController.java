@@ -23,7 +23,6 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-
     @GetMapping("")
     public ResponseEntity<String> displaysth() {
 
