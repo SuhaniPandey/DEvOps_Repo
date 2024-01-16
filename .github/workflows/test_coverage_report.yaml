@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload the coverage directory from the repository
+
           path: './coverage/'
       - name: Deploy to GitHub Pages
         id: deployment

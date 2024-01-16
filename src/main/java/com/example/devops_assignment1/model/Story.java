@@ -18,7 +18,8 @@ public class Story {
         this.user = user;
     }
 
-
+    public Story() {
+    }
 
     public Department getUser() {
         return user;
